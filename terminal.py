@@ -60,10 +60,11 @@ def main():
         num = int(input('Enter the number to put : '))
         showed_grid[index] = num
 
-    print('Well done !')
-    print_grid(hidden_grid, showed_grid)
-    print('This is what the computer found :')
-    print_grid(hidden_grid, solved)
+    if general.check_grid(showed_grid):
+        print('Well done !')
+        print_grid(hidden_grid, showed_grid)
+        print('This is what the computer found :')
+        print_grid(hidden_grid, solved)
 
 
 if __name__ == "__main__":
