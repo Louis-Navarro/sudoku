@@ -1,5 +1,34 @@
 import numpy as np
 import random
+from colorama import init, Fore
+init()
+
+RED = Fore.RED
+GREEN = Fore.GREEN
+BLUE = Fore.BLUE
+RESET = Fore.RESET
+
+
+def print_grid(hidden_grid, showed_grid):
+    for i in range(81):
+        row = i // 9
+        col = i % 9
+
+        index = (row, col)
+
+        if hidden_grid[index] == 0:
+            print(GREEN, showed_grid[index], end='')
+        else:
+            print(RED, showed_grid[index], end='')
+
+        if col in (2, 5, 8):
+            print(' ', end=' ')
+
+        if row in (2, 5, 8) and col == 8:
+            print()
+
+        if col == 8:
+            print(RESET)
 
 
 def create_grid():
