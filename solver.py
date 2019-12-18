@@ -55,13 +55,21 @@ if __name__ == "__main__":
         resolved_grid = solve(initial_grid.copy())
 
     if 0 not in initial_grid:
-        print(f'Initial grid: \n{initial_grid}')
-        print(f'Showed grid: \n{showed_grid}')
+        print(f'Initial grid:')
+        general.print_grid(showed_grid, initial_grid)
+
+        print(f'Showed grid:')
+        general.print_grid(showed_grid, showed_grid)
+
+        print(f'Resolved grid:')
+        general.print_grid(showed_grid, resolved_grid)
 
     else:
-        print(f'Showed grid: \n{initial_grid}')
+        print(f'Showed grid:')
+        general.print_grid(initial_grid, initial_grid)
 
-    print(f'Resolved grid: \n{resolved_grid}')
+        print(f'Resolved grid:')
+        general.print_grid(initial_grid, resolved_grid)
 
     if general.check_grid(resolved_grid):
         print(f'Answer {colorama.Fore.GREEN}correct')
