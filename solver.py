@@ -19,7 +19,6 @@ def solve(grid):
     indexes = list(zip(rows, cols))
 
     i = 0
-    print('Started')
     while i < len(indexes):
         index = indexes[i]
         current_num = grid[index]
@@ -37,14 +36,31 @@ if __name__ == "__main__":
     import colorama
     colorama.init()
 
-    initial_grid = general.create_grid()
+    create = input('Do you want to input a grid ?\n').lower() == 'yes'
 
-    showed_grid = general.hide_grid(initial_grid.copy())
+    if not create:
+        initial_grid = general.create_grid()
+        showed_grid = general.hide_grid(initial_grid.copy())
+        resolved_grid = solve(showed_grid.copy())
 
-    resolved_grid = solve(showed_grid.copy())
+    else:
+        initial_grid = np.zeros((9, 9), int)
 
-    print(f'Initial grid: \n{initial_grid}')
-    print(f'Showed grid: \n{showed_grid}')
+        for row in range(9):
+            print(f'Enter numbers for row {row + 1}')
+
+            numbers = list(input())
+            initial_grid[row] = numbers
+
+        resolved_grid = solve(initial_grid.copy())
+
+    if 0 not in initial_grid:
+        print(f'Initial grid: \n{initial_grid}')
+        print(f'Showed grid: \n{showed_grid}')
+
+    else:
+        print(f'Showed grid: \n{initial_grid}')
+
     print(f'Resolved grid: \n{resolved_grid}')
 
     if general.check_grid(resolved_grid):
