@@ -49,31 +49,31 @@ def check_click():
         if keys[pg.K_LCTRL] & keys[pg.K_SPACE]:
             show_solution = True
 
-        elif keys[pg.K_KP1]:
+        elif keys[pg.K_KP1] & (current_case != (-1, -1)):
             modified_grid[current_case] = 1
 
-        elif keys[pg.K_KP2]:
+        elif keys[pg.K_KP2] & (current_case != (-1, -1)):
             modified_grid[current_case] = 2
 
-        elif keys[pg.K_KP3]:
+        elif keys[pg.K_KP3] & (current_case != (-1, -1)):
             modified_grid[current_case] = 3
 
-        elif keys[pg.K_KP4]:
+        elif keys[pg.K_KP4] & (current_case != (-1, -1)):
             modified_grid[current_case] = 4
 
-        elif keys[pg.K_KP5]:
+        elif keys[pg.K_KP5] & (current_case != (-1, -1)):
             modified_grid[current_case] = 5
 
-        elif keys[pg.K_KP6]:
+        elif keys[pg.K_KP6] & (current_case != (-1, -1)):
             modified_grid[current_case] = 6
 
-        elif keys[pg.K_KP7]:
+        elif keys[pg.K_KP7] & (current_case != (-1, -1)):
             modified_grid[current_case] = 7
 
-        elif keys[pg.K_KP8]:
+        elif keys[pg.K_KP8] & (current_case != (-1, -1)):
             modified_grid[current_case] = 8
 
-        elif keys[pg.K_KP9]:
+        elif keys[pg.K_KP9] & (current_case != (-1, -1)):
             modified_grid[current_case] = 9
 
         elif keys[pg.K_DELETE] or keys[pg.K_BACKSPACE]:
