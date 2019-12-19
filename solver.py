@@ -31,6 +31,21 @@ def solve(grid):
     return grid
 
 
+def solve_animation(grid):
+    rows, cols = np.where(grid == 0)
+    indexes = list(zip(rows, cols))
+
+    i = 0
+    while i < len(indexes):
+        index = indexes[i]
+        current_num = grid[index]
+        num = find_number(grid, *index, current_num + 1)
+
+        yield (*index, num)
+
+        i += 1 if num else -1
+
+
 if __name__ == "__main__":
     import general
     import colorama
