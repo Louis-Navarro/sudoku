@@ -19,8 +19,11 @@ pg.display.set_caption('Sudoku')
 initial_grid = general.create_grid()
 hidden_grid = general.hide_grid(initial_grid.copy(), 80)
 modified_grid = hidden_grid.copy()
+solution = solver.solve_animation(hidden_grid.copy())
 
 current_case = (-1, -1)
+
+show_solution = False
 
 #############
 # FUNCTIONS #
@@ -28,7 +31,7 @@ current_case = (-1, -1)
 
 
 def check_click():
-    global current_case, modified_grid
+    global current_case, modified_grid, show_solution
 
     clicks = pg.mouse.get_pressed()
     if clicks[0]:
@@ -42,42 +45,50 @@ def check_click():
 
     keys = pg.key.get_pressed()
 
-    if keys[pg.K_LCTRL] & keys[pg.K_SPACE]:
-        modified_grid = solver.solve(hidden_grid.copy())
+    if not show_solution:
+        if keys[pg.K_LCTRL] & keys[pg.K_SPACE]:
+            show_solution = True
 
-    elif keys[pg.K_KP1]:
-        modified_grid[current_case] = 1
+        elif keys[pg.K_KP1]:
+            modified_grid[current_case] = 1
 
-    elif keys[pg.K_KP2]:
-        modified_grid[current_case] = 2
+        elif keys[pg.K_KP2]:
+            modified_grid[current_case] = 2
 
-    elif keys[pg.K_KP3]:
-        modified_grid[current_case] = 3
+        elif keys[pg.K_KP3]:
+            modified_grid[current_case] = 3
 
-    elif keys[pg.K_KP4]:
-        modified_grid[current_case] = 4
+        elif keys[pg.K_KP4]:
+            modified_grid[current_case] = 4
 
-    elif keys[pg.K_KP5]:
-        modified_grid[current_case] = 5
+        elif keys[pg.K_KP5]:
+            modified_grid[current_case] = 5
 
-    elif keys[pg.K_KP6]:
-        modified_grid[current_case] = 6
+        elif keys[pg.K_KP6]:
+            modified_grid[current_case] = 6
 
-    elif keys[pg.K_KP7]:
-        modified_grid[current_case] = 7
+        elif keys[pg.K_KP7]:
+            modified_grid[current_case] = 7
 
-    elif keys[pg.K_KP8]:
-        modified_grid[current_case] = 8
+        elif keys[pg.K_KP8]:
+            modified_grid[current_case] = 8
 
-    elif keys[pg.K_KP9]:
-        modified_grid[current_case] = 9
+        elif keys[pg.K_KP9]:
+            modified_grid[current_case] = 9
 
-    elif keys[pg.K_DELETE] or keys[pg.K_BACKSPACE]:
-        modified_grid[current_case] = 0
-        current_case = (-1, -1)
+        elif keys[pg.K_DELETE] or keys[pg.K_BACKSPACE]:
+            modified_grid[current_case] = 0
+            current_case = (-1, -1)
 
-    if any(keys[pg.K_KP1:pg.K_KP9 + 1]):
-        current_case = (-1, -1)
+        if any(keys[pg.K_KP1:pg.K_KP9 + 1]):
+            current_case = (-1, -1)
+
+    else:
+        try:
+            row, col, num = next(solution)
+            modified_grid[row, col] = num
+        except StopIteration:
+            show_solution = False
 
 
 def draw_window():
@@ -134,7 +145,7 @@ clock = pg.time.Clock()
 run = True
 
 while run:
-    clock.tick(30)
+    # clock.tick(60)
 
     for e in pg.event.get():
         if e.type == pg.QUIT:
