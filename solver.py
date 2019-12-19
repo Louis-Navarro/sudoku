@@ -37,13 +37,15 @@ def solve_animation(grid):
 
     i = 0
     while i < len(indexes):
-        index = indexes[i]
-        current_num = grid[index]
-        num = find_number(grid, *index, current_num + 1)
+        row, col = indexes[i]
+        current_num = grid[row, col]
+        num = find_number(grid, row, col, current_num + 1)
 
-        yield (*index, num)
+        grid[row, col] = num
 
         i += 1 if num else -1
+
+        yield (row, col, num)
 
 
 if __name__ == "__main__":
