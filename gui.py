@@ -31,7 +31,7 @@ show_solution = False
 
 
 def check_click():
-    global current_case, modified_grid, show_solution
+    global current_case, modified_grid, show_solution, solution
 
     clicks = pg.mouse.get_pressed()
     if clicks[0]:
@@ -88,6 +88,7 @@ def check_click():
             row, col, num = next(solution)
             modified_grid[row, col] = num
         except StopIteration:
+            solution = solver.solve_animation(hidden_grid.copy())
             show_solution = False
 
 
