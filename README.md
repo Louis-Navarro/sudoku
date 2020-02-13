@@ -1,5 +1,4 @@
-Sudoku game in Python
-=====================
+# Sudoku game in Python
 
 This is a simple sudoku game made in Python. This repository includes a terminal version, a GUI version and a solving algorithm.
 
@@ -11,8 +10,7 @@ This is a simple sudoku game made in Python. This repository includes a terminal
 
 3. Done ! You can now play sudoku in the terminal or with a GUI and quickly solve sudoku grids !
 
-
-## How to the algorithm works
+## How does the algorithm works
 
 The algorithm used is a backtracking algorithm:
 Firstly, it will find a number that can fill the first square, then same for the second square etc...
