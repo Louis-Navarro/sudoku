@@ -1,6 +1,8 @@
+from colorama import Fore, init
+
 import general
 import solver
-from colorama import init, Fore
+
 init()
 
 RED = Fore.RED

@@ -1,6 +1,8 @@
-import numpy as np
 import random
-from colorama import init, Fore
+
+import numpy as np
+from colorama import Fore, init
+
 init()
 
 RED = Fore.RED
