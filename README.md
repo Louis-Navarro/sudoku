@@ -16,4 +16,5 @@ The algorithm used is a backtracking algorithm:
 Firstly, it will find a number that can fill the first square, then same for the second square etc...
 If no number works in one of the squares, the algorithm searches for another number in the previous square and so one.
 
-![Backtracking tree](https://camo.githubusercontent.com/3683f568b4f63fa8a90276a03de022f09fcb16d4/687474703a2f2f692e696d6775722e636f6d2f4b644572434f552e676966)
+![Backtracking tree](https://camo.githubusercontent.com/3683f568b4f63fa8a90276a03de022f09fcb16d4/687474703a2f2f692e696d6775722e636f6d2f4b644572434f552e676966 "Backtracking algorithm example")
+NB: This is not the actual program, this is an example of how the algorithm works.
