@@ -37,8 +37,8 @@ def check_click():
     if clicks[0]:
         x, y = pg.mouse.get_pos()
 
-        row = int(y / 504 * 9)
-        col = int(x / 504 * 9)
+        row = int(y / win_side * 9)
+        col = int(x / win_side * 9)
 
         if hidden_grid[row, col] == 0:
             current_case = row, col
@@ -97,11 +97,11 @@ def draw_window():
 
     for i in range(1, 9):
         if not i % 3:
-            pg.draw.line(win, (0, 0, 0), (56 * i, 0), (56 * i, 504), 3)
-            pg.draw.line(win, (0, 0, 0), (0, 56 * i), (504, 56 * i), 3)
+            pg.draw.line(win, (0, 0, 0), (56 * i, 0), (56 * i, win_side), 3)
+            pg.draw.line(win, (0, 0, 0), (0, 56 * i), (win_side, 56 * i), 3)
         else:
-            pg.draw.line(win, (0, 0, 0), (56 * i, 0), (56 * i, 504), 1)
-            pg.draw.line(win, (0, 0, 0), (0, 56 * i), (504, 56 * i), 1)
+            pg.draw.line(win, (0, 0, 0), (56 * i, 0), (56 * i, win_side), 1)
+            pg.draw.line(win, (0, 0, 0), (0, 56 * i), (win_side, 56 * i), 1)
 
     for row in range(9):
         for col in range(9):
