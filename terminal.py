@@ -46,7 +46,7 @@ def main():
         row = int(input('What row do you want to change : ')) - 1
 
         if row == -1:
-            print(f'Solution :')
+            print(f'You abandoned, the computer found :')
             print_grid(hidden_grid, solved)
             break
 
